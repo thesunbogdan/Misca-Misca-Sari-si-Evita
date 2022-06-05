@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
     }
 
     public void GameOver()
@@ -52,6 +58,12 @@ public class GameController : MonoBehaviour
     public void IncrementScore()
     {
         score++;
+        scoreText.text = score.ToString();
+    }
+
+    public void IncrementScoreStar()
+    {
+        score=score+10;
         scoreText.text = score.ToString();
     }
 }
